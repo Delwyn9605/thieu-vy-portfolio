@@ -33,7 +33,7 @@ img{max-width:100%}
 .s-lilac{background:linear-gradient(135deg,#FFFEF3 0%,#FCF8D2 40%,#FCE7E3 100%);color:var(--burgundy)}
 .s-blush{background:linear-gradient(135deg,#FCE7E3 0%,#FAB1A9 55%,#F98787 100%);color:var(--burgundy)}
 .s-cream .sub,.s-lilac .sub,.s-blush .sub{color:var(--burgundy)}
-section[id],header[id]{scroll-margin-top:68px}
+section[id],header[id]{scroll-margin-top:calc(var(--nav-h,57px) - 1px)}
 
 .eyebrow{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500}
 .h2{font-size:clamp(2rem,4.6vw,3.2rem);margin-top:10px}

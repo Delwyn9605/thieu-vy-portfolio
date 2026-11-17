@@ -246,7 +246,10 @@ document.querySelectorAll('.portrait img,.contact-photo img,.pic img').forEach(z
 /* ---------- nav ---------- */
 var navList=document.getElementById('navList'),menuBtn=document.getElementById('menuBtn');
 menuBtn.addEventListener('click',function(){var o=navList.classList.toggle('open');menuBtn.setAttribute('aria-expanded',o?'true':'false')});
-function go(id){var el=id&&id!=='top'?document.getElementById(id):null;if(el)el.scrollIntoView();else window.scrollTo(0,0)}
+var navEl=document.querySelector('nav.top');
+function setNavH(){if(navEl)document.documentElement.style.setProperty('--nav-h',navEl.getBoundingClientRect().height+'px')}
+setNavH();addEventListener('resize',setNavH);addEventListener('load',setNavH);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(setNavH);
+function go(id){setNavH();var el=id&&id!=='top'?document.getElementById(id):null;if(el)el.scrollIntoView();else window.scrollTo(0,0)}
 document.querySelectorAll('a[href^="#"]').forEach(function(a){
   a.addEventListener('click',function(e){e.preventDefault();navList.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');go(a.getAttribute('href').slice(1))});
 });
